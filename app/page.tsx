@@ -13,7 +13,7 @@ export default async function HomePage() {
     '@context': 'https://schema.org',
     '@type': 'CafeOrCoffeeShop',
     name: 'Matka Chai',
-    image: `${env.siteUrl}/images/hero.svg`,
+    image: `${env.siteUrl}/images/hero-realistic.png`,
     url: env.siteUrl,
     servesCuisine: ['Pakistani', 'Chai', 'Biryani'],
     priceRange: 'PKR 250-1800',
@@ -29,7 +29,7 @@ export default async function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <section className="hero">
-        <Image src="/images/hero.svg" alt="Matka Chai original chai room at Creek Walk" fill priority sizes="100vw" />
+        <Image src="/images/hero-realistic.png" alt="Matka Chai original chai room at Creek Walk" fill priority sizes="100vw" />
         <div className="hero-overlay" />
         <div className="container hero-content">
           <span className="hero-kicker">Original Chai Room · Creek Walk, DHA 8</span>
