@@ -3,12 +3,12 @@ import { createSupabaseServerClient } from '@/lib/supabase/server';
 import type { MenuCategory, MenuCategoryWithItems, MenuItem } from '@/lib/types';
 
 const preferredMenuImages: Record<string, string> = {
-  'chai-1': '/images/matka-chai-real-matka.webp',
-  'chai-2': '/images/elaichi-chai-real-matka.webp',
-  'chai-3': '/images/malai-badam-chai-real-matka.webp',
-  'chai-4': '/images/kashmiri-chai-real-matka.webp',
-  'chai-5': '/images/chocolate-chai-real-matka.webp',
-  'chai-6': '/images/green-tea-real-matka.webp',
+  'chai-1': '/images/matka-chai-uniform.webp',
+  'chai-2': '/images/elaichi-chai-uniform.webp',
+  'chai-3': '/images/malai-badam-chai-uniform.webp',
+  'chai-4': '/images/kashmiri-chai-uniform.webp',
+  'chai-5': '/images/chocolate-chai-uniform.webp',
+  'chai-6': '/images/green-tea-uniform.webp',
   'coffee-1': '/images/hot-coffee-fine-matka.webp',
   'coffee-2': '/images/caramel-iced-latte-glass.webp',
   'coffee-3': '/images/mocha-iced-latte-glass.webp',
@@ -54,6 +54,12 @@ const legacyMenuImages = new Set([
   '/images/kashmiri-chai-fine-matka.webp',
   '/images/chocolate-chai-fine-matka.webp',
   '/images/green-tea-fine-matka.webp',
+  '/images/matka-chai-real-matka.webp',
+  '/images/elaichi-chai-real-matka.webp',
+  '/images/malai-badam-chai-real-matka.webp',
+  '/images/kashmiri-chai-real-matka.webp',
+  '/images/chocolate-chai-real-matka.webp',
+  '/images/green-tea-real-matka.webp',
 ]);
 
 function withPreferredMenuImage(item: MenuItem): MenuItem {
