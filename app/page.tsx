@@ -1,28 +1,58 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { ChatLauncher } from '@/components/ChatLauncher';
 import { MenuCard } from '@/components/MenuCard';
 import { SectionTitle } from '@/components/SectionTitle';
 import { env } from '@/lib/env';
 import { getSignatureItems } from '@/lib/menu';
 
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+  title: 'Matka Chai Karachi | Chai, Lamb Rosh & Matka Biryani',
+  description: 'Discover Matka Chai at Creek Walk DHA Phase 8 Karachi: handcrafted chai, lamb rosh, matka biryani, paratha pairings and contemporary Pakistani hospitality.',
+};
+
 export default async function HomePage() {
   const signatureItems = await getSignatureItems();
 
   const schema = {
     '@context': 'https://schema.org',
-    '@type': 'CafeOrCoffeeShop',
-    name: 'Matka Chai',
-    image: `${env.siteUrl}/images/hero-realistic.png`,
-    url: env.siteUrl,
-    servesCuisine: ['Pakistani', 'Chai', 'Biryani'],
-    priceRange: 'PKR 250-1800',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Creek Walk, DHA Phase 8',
-      addressLocality: 'Karachi',
-      addressCountry: 'PK',
-    },
+    '@graph': [
+      {
+        '@type': ['Restaurant', 'CafeOrCoffeeShop'],
+        '@id': `${env.siteUrl}/#restaurant`,
+        name: 'Matka Chai',
+        image: [`${env.siteUrl}/images/hero-realistic.png`, `${env.siteUrl}/images/matka-chai-cooler-scene.webp`],
+        logo: `${env.siteUrl}/icon.svg`,
+        url: env.siteUrl,
+        telephone: '+92-333-7571119',
+        menu: `${env.siteUrl}/menu`,
+        acceptsReservations: false,
+        servesCuisine: ['Pakistani', 'Chai', 'Biryani', 'Lamb Rosh', 'Paratha'],
+        priceRange: 'PKR 250-1800',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'Creek Walk, DHA Phase 8',
+          addressLocality: 'Karachi',
+          addressRegion: 'Sindh',
+          addressCountry: 'PK',
+        },
+        openingHoursSpecification: [
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'], opens: '18:00', closes: '02:00' },
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Friday', 'Saturday', 'Sunday'], opens: '18:00', closes: '03:00' },
+        ],
+        potentialAction: { '@type': 'OrderAction', target: `${env.siteUrl}/menu` },
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${env.siteUrl}/#website`,
+        name: 'Matka Chai',
+        url: env.siteUrl,
+        inLanguage: 'en-PK',
+        publisher: { '@id': `${env.siteUrl}/#restaurant` },
+      },
+    ],
   };
 
   return (
@@ -57,7 +87,7 @@ export default async function HomePage() {
 
       <section className="section parchment-section">
         <div className="container">
-          <SectionTitle eyebrow="The Matka Favourites" title="Come for the chai. Stay for the food." text="A concise selection of the dishes and drinks that define the Matka Chai experience." center />
+          <SectionTitle eyebrow="The Matka Favourites" title="Steeped in tradition. Served with soul." text="From slow-brewed matka chai to biryani, lamb rosh and hearty Karachi favourites, every order is made for sharing." center />
           <div className="signature-grid">
             {signatureItems.map((item) => <MenuCard key={item.id} item={item} featured />)}
           </div>

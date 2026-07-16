@@ -2,10 +2,18 @@ import type { MetadataRoute } from 'next';
 import { env } from '@/lib/env';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ['', '/menu', '/story', '/visit', '/franchise'].map((path) => ({
+  const pages = [
+    { path: '', changeFrequency: 'weekly' as const, priority: 1 },
+    { path: '/menu', changeFrequency: 'weekly' as const, priority: 0.95 },
+    { path: '/visit', changeFrequency: 'monthly' as const, priority: 0.85 },
+    { path: '/story', changeFrequency: 'monthly' as const, priority: 0.75 },
+    { path: '/franchise', changeFrequency: 'monthly' as const, priority: 0.7 },
+  ];
+  return pages.map(({ path, changeFrequency, priority }) => ({
     url: `${env.siteUrl}${path}`,
     lastModified: new Date(),
-    changeFrequency: path === '/menu' ? 'weekly' : 'monthly',
-    priority: path === '' ? 1 : 0.8,
+    changeFrequency,
+    priority,
+    images: path === '' ? [`${env.siteUrl}/images/hero-realistic.png`] : path === '/menu' ? [`${env.siteUrl}/images/matka-chai-cooler-scene.webp`] : undefined,
   }));
 }

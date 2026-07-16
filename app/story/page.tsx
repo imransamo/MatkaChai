@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { SectionTitle } from '@/components/SectionTitle';
 
-export const metadata: Metadata = { title: 'Our Story', description: 'The story and vision behind Matka Chai, Pakistan’s contemporary chai room.' };
+export const metadata: Metadata = { title: 'Our Story', description: 'Discover the story behind Matka Chai Karachi and our contemporary take on Pakistan’s chai, clay-matka and hospitality traditions.', alternates: { canonical: '/story' } };
 
 export default function StoryPage() {
   return (

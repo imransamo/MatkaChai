@@ -1,16 +1,39 @@
 import type { Metadata } from 'next';
 import { MenuCard } from '@/components/MenuCard';
+import { env } from '@/lib/env';
 import { getMenu } from '@/lib/menu';
 
 export const metadata: Metadata = {
   title: 'Menu',
-  description: 'Explore Matka Chai’s menu of chai, coffee, coolers, fries, matka biryani, handi and rosh at Creek Walk DHA 8 Karachi.',
+  description: 'Explore Matka Chai Karachi’s complete menu: matka chai, Kashmiri chai, lamb rosh, biryani, handi, fries, coffee and art-matka coolers at Creek Walk DHA 8.',
+  alternates: { canonical: '/menu' },
+  openGraph: { url: '/menu', title: 'Matka Chai Karachi Menu', description: 'Chai, lamb rosh, biryani, Pakistani comfort food and art-matka coolers in DHA Phase 8 Karachi.' },
 };
 
 export default async function MenuPage() {
   const menu = await getMenu();
+  const menuSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Menu',
+    '@id': `${env.siteUrl}/menu#menu`,
+    name: 'Matka Chai Karachi Menu',
+    url: `${env.siteUrl}/menu`,
+    hasMenuSection: menu.map((category) => ({
+      '@type': 'MenuSection',
+      name: category.name,
+      description: category.description,
+      hasMenuItem: category.items.map((item) => ({
+        '@type': 'MenuItem',
+        name: item.name,
+        description: item.description,
+        image: item.image_url ? `${env.siteUrl}${item.image_url}` : undefined,
+        offers: { '@type': 'Offer', price: item.price, priceCurrency: 'PKR', availability: 'https://schema.org/InStock' },
+      })),
+    })),
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(menuSchema) }} />
       <section className="page-hero menu-hero">
         <div className="container page-hero-content">
           <span className="eyebrow light">Creek Walk · DHA 8</span>
