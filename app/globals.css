@@ -330,6 +330,7 @@ textarea { resize: vertical; }
 .admin-login-card > p { color: var(--muted); }
 .admin-login-card .button { width: 100%; }
 .admin-login-card > a { display: block; text-align: center; color: var(--muted); margin-top: 22px; font-size: 12px; }
+.admin-login-card .admin-forgot-link { margin: -6px 0 16px; text-align: right; color: var(--maroon); font-size: 12px; font-weight: 800; }
 .admin-shell { width: min(1440px, calc(100% - 36px)); margin: 0 auto; padding: 55px 0 100px; }
 .admin-topbar { display: flex; justify-content: space-between; gap: 30px; align-items: center; }
 .admin-topbar h1 { color: var(--maroon); font-family: Georgia, 'Times New Roman', serif; font-size: 45px; margin: 0; }

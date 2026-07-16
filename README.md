@@ -45,6 +45,8 @@ insert into public.admins (user_id, display_name)
 values ('PASTE-AUTH-USER-UUID-HERE', 'Imran Ali');
 ```
 
+For owner password recovery, add `https://matkachai.pk/auth/callback` under **Authentication > URL Configuration > Redirect URLs**. Configure custom SMTP in Supabase for reliable production delivery of recovery emails.
+
 ## 2. Get Supabase keys
 
 In Supabase open **Project Settings > API** and copy:
