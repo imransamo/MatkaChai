@@ -29,16 +29,18 @@ export default async function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <section className="hero">
-        <Image src="/images/hero-realistic.png" alt="Matka Chai original chai room at Creek Walk" fill priority sizes="100vw" />
+        <Image className="hero-background" src="/images/hero-matka-photo.png" alt="Steaming Matka Chai in a traditional handmade terracotta matka" fill priority sizes="100vw" />
         <div className="hero-overlay" />
-        <div className="container hero-content">
-          <span className="hero-kicker">Original Chai Room · Creek Walk, DHA 8</span>
-          <p className="urdu-brand" lang="ur" dir="rtl">مٹکا چائے</p>
-          <h1>Pakistan&apos;s Contemporary <em>Chai Room</em></h1>
-          <p>Slow-brewed chai, comforting desi food and conversations that stay longer than the cup.</p>
-          <div className="hero-actions">
-            <Link href="/menu" className="button button-gold">Explore the Menu</Link>
-            <a href={env.mapsUrl} target="_blank" rel="noreferrer" className="button button-light">Get Directions</a>
+        <div className="container hero-layout">
+          <div className="hero-content">
+            <span className="hero-kicker">Original Chai Room · Creek Walk, DHA 8</span>
+            <p className="urdu-brand" lang="ur" dir="rtl">مٹکا چائے</p>
+            <h1>Pakistan&apos;s <span className="hero-green">Contemporary</span> <em>Chai Room</em></h1>
+            <p>Slow-brewed chai, comforting desi food and conversations that stay longer than the cup.</p>
+            <div className="hero-actions">
+              <Link href="/menu" className="button button-gold">Explore the Menu</Link>
+              <a href={env.mapsUrl} target="_blank" rel="noreferrer" className="button button-light">Get Directions</a>
+            </div>
           </div>
         </div>
         <div className="hero-note">Desi chai · Real food · Good company</div>
