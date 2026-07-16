@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { FranchiseForm } from '@/components/FranchiseForm';
 import { SectionTitle } from '@/components/SectionTitle';
 
-export const metadata: Metadata = { title: 'Franchise', description: 'Register interest in future Matka Chai franchise opportunities in Pakistan.' };
+export const metadata: Metadata = { title: 'Matka Chai Franchise Pakistan', description: 'Register interest in future Matka Chai franchise opportunities and chai-room formats across Pakistan.', alternates: { canonical: '/franchise' } };
 
 export default function FranchisePage() {
   return (

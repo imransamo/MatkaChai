@@ -17,7 +17,7 @@ export function MenuCard({ item, featured = false }: { item: MenuItem; featured?
   return (
     <article className={`menu-card ${featured ? 'featured' : ''}`}>
       {item.image_url ? (
-        <div className="menu-card-image"><img src={item.image_url} alt={item.name} loading={featured ? 'eager' : 'lazy'} /></div>
+        <div className="menu-card-image"><img src={item.image_url} alt={`${item.name} served at Matka Chai Karachi`} loading={featured ? 'eager' : 'lazy'} /></div>
       ) : null}
       <div className="menu-card-body">
         <div className="menu-card-top">

@@ -5,7 +5,7 @@ import { ContactForm } from '@/components/ContactForm';
 import { SectionTitle } from '@/components/SectionTitle';
 import { env } from '@/lib/env';
 
-export const metadata: Metadata = { title: 'Visit Us', description: 'Visit Matka Chai at Creek Walk, DHA Phase 8, Karachi. Get directions, opening information and contact details.' };
+export const metadata: Metadata = { title: 'Visit Matka Chai in DHA Karachi', description: 'Visit Matka Chai at Creek Walk, DHA Phase 8 Karachi for evening chai and Pakistani comfort food. View hours, directions and contact details.', alternates: { canonical: '/visit' } };
 
 export default function VisitPage() {
   return (

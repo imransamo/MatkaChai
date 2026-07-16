@@ -180,12 +180,12 @@ on conflict (id) do update set name = excluded.name, slug = excluded.slug, descr
 
 -- Seed menu items. IDs remain stable so rerunning this script will not duplicate them.
 insert into public.menu_items (id, category_id, name, description, price, image_url, badge, is_signature, is_active, sort_order) values
-('chai-1','cat-chai','Matka Chai','Our signature creamy doodh patti served in an earthen matka.',250,'/images/matka-chai-uniform.webp','Signature',true,true,1),
-('chai-2','cat-chai','Elachi Chai','Aromatic cardamom chai, rich and comforting.',300,'/images/elaichi-chai-uniform.webp',null,false,true,2),
-('chai-3','cat-chai','Malai Badam Chai','Creamy chai finished with delicate malai and almond slivers.',400,'/images/malai-badam-chai-uniform.webp','Favourite',true,true,3),
-('chai-4','cat-chai','Kashmiri Chai','Pink tea with a delicate nutty finish.',400,'/images/kashmiri-chai-uniform.webp',null,false,true,4),
-('chai-5','cat-chai','Chocolate Chai','A playful chocolate twist on classic chai.',400,'/images/chocolate-chai-uniform.webp',null,false,true,5),
-('chai-6','cat-chai','Green Tea','Light, clean and soothing.',250,'/images/green-tea-uniform.webp',null,false,true,6),
+('chai-1','cat-chai','Matka Chai','Our signature creamy doodh patti served in an earthen matka.',250,'/images/matka-chai-cooler-scene.webp','Signature',true,true,1),
+('chai-2','cat-chai','Elachi Chai','Aromatic cardamom chai, rich and comforting.',300,'/images/elaichi-chai-cooler-scene.webp',null,false,true,2),
+('chai-3','cat-chai','Malai Badam Chai','Creamy chai finished with delicate malai and almond slivers.',400,'/images/malai-badam-chai-cooler-scene.webp','Favourite',true,true,3),
+('chai-4','cat-chai','Kashmiri Chai','Pink tea with a delicate nutty finish.',400,'/images/kashmiri-chai-cooler-scene.webp',null,false,true,4),
+('chai-5','cat-chai','Chocolate Chai','A playful chocolate twist on classic chai.',400,'/images/chocolate-chai-cooler-scene.webp',null,false,true,5),
+('chai-6','cat-chai','Green Tea','Light, clean and soothing.',250,'/images/green-tea-cooler-scene.webp',null,false,true,6),
 ('coffee-1','cat-coffee','Coffee','Classic hot coffee.',300,null,null,false,true,1),
 ('coffee-2','cat-coffee','Caramel Latte','Chilled espresso and milk with caramel traced inside the glass.',650,'/images/caramel-iced-latte-glass.webp',null,false,true,2),
 ('coffee-3','cat-coffee','Mocha Latte','Chilled espresso, milk and cocoa with chocolate traced inside the glass.',650,'/images/mocha-iced-latte-glass.webp',null,false,true,3),
@@ -218,12 +218,12 @@ on conflict (id) do update set category_id=excluded.category_id, name=excluded.n
 update public.menu_items as item
 set image_url = image.image_url
 from (values
-  ('chai-1','/images/matka-chai-uniform.webp'),
-  ('chai-2','/images/elaichi-chai-uniform.webp'),
-  ('chai-3','/images/malai-badam-chai-uniform.webp'),
-  ('chai-4','/images/kashmiri-chai-uniform.webp'),
-  ('chai-5','/images/chocolate-chai-uniform.webp'),
-  ('chai-6','/images/green-tea-uniform.webp'),
+  ('chai-1','/images/matka-chai-cooler-scene.webp'),
+  ('chai-2','/images/elaichi-chai-cooler-scene.webp'),
+  ('chai-3','/images/malai-badam-chai-cooler-scene.webp'),
+  ('chai-4','/images/kashmiri-chai-cooler-scene.webp'),
+  ('chai-5','/images/chocolate-chai-cooler-scene.webp'),
+  ('chai-6','/images/green-tea-cooler-scene.webp'),
   ('coffee-1','/images/hot-coffee-fine-matka.webp'),
   ('coffee-2','/images/caramel-iced-latte-glass.webp'),
   ('coffee-3','/images/mocha-iced-latte-glass.webp'),

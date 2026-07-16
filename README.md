@@ -66,15 +66,19 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_PUBLIC_KEY
 SUPABASE_SERVICE_ROLE_KEY=YOUR_SECRET_SERVICE_ROLE_KEY
 NEXT_PUBLIC_GOOGLE_MAPS_URL=https://maps.google.com/?q=Creek+Walk+DHA+Phase+8+Karachi
 OPENAI_API_KEY=YOUR_SECRET_OPENAI_API_KEY
-OPENAI_CHAT_MODEL=gpt-5.6-luna
+OPENAI_CHAT_MODEL=gpt-5.4-mini
 MANAGER_NOTIFICATION_EMAIL=manager@example.com
+MANAGER_WHATSAPP_NUMBER=923337571119
 RESEND_API_KEY=YOUR_SECRET_RESEND_KEY
 ORDER_NOTIFICATION_FROM=Matka Chai Orders <orders@matkachai.pk>
+WHATSAPP_ACCESS_TOKEN=YOUR_META_WHATSAPP_ACCESS_TOKEN
+WHATSAPP_PHONE_NUMBER_ID=YOUR_META_PHONE_NUMBER_ID
+WHATSAPP_GRAPH_VERSION=v23.0
 # Optional alternative/additional manager alert destination:
 ORDER_NOTIFICATION_WEBHOOK_URL=https://your-secure-webhook.example/order
 ```
 
-Keep `OPENAI_API_KEY`, `RESEND_API_KEY`, the service-role key and any private webhook URL server-only. Never prefix them with `NEXT_PUBLIC_`.
+Keep `OPENAI_API_KEY`, `RESEND_API_KEY`, WhatsApp credentials, the service-role key and any private webhook URL server-only. Never prefix them with `NEXT_PUBLIC_`. The manager number is `923337571119` (03337571119 locally); automatic WhatsApp alerts require a connected Meta WhatsApp Business Cloud API phone-number ID and access token.
 
 For a Supabase project that already has the earlier Matka Chai schema, run `supabase/migrations/20260716_online_orders.sql` once in SQL Editor. Checkout has a safe message-table fallback during the migration window, but the migration enables the dedicated order queue and status workflow.
 
