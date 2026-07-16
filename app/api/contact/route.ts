@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     }
 
     const supabase = createSupabaseAdminClient();
-    if (!supabase) return NextResponse.json({ error: 'The contact database is not connected yet. Please contact us on WhatsApp.' }, { status: 503 });
+    if (!supabase) return NextResponse.json({ error: 'The contact database is not connected yet. Please use Chat with us.' }, { status: 503 });
 
     const { error } = await supabase.from('contact_messages').insert(payload);
     if (error) {

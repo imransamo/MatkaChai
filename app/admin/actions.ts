@@ -78,3 +78,12 @@ export async function updateMessageStatusAction(formData: FormData) {
   await supabase.from('contact_messages').update({ status }).eq('id', id);
   revalidatePath('/admin/dashboard');
 }
+
+export async function updateOrderStatusAction(formData: FormData) {
+  const { supabase } = await requireAdmin();
+  const id = value(formData, 'id', 80);
+  const status = value(formData, 'status', 30);
+  if (!id || !['new', 'confirmed', 'preparing', 'ready', 'out_for_delivery', 'completed', 'cancelled'].includes(status)) return;
+  await supabase.from('orders').update({ status }).eq('id', id);
+  revalidatePath('/admin/dashboard');
+}

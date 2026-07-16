@@ -50,3 +50,40 @@ export type ContactMessage = {
   status: string;
   created_at: string;
 };
+
+export type CartItem = {
+  id: string;
+  name: string;
+  price: number;
+  image_url: string | null;
+  quantity: number;
+};
+
+export type OrderLineItem = {
+  item_id: string;
+  name: string;
+  unit_price: number;
+  quantity: number;
+  line_total: number;
+};
+
+export type Order = {
+  id: string;
+  order_number: string;
+  customer_name: string;
+  phone: string;
+  fulfilment_type: 'delivery' | 'pickup';
+  delivery_phase: string | null;
+  delivery_address: string | null;
+  payment_method: 'cash';
+  items: OrderLineItem[];
+  subtotal: number;
+  delivery_fee: number;
+  total: number;
+  notes: string | null;
+  source: 'website' | 'chat';
+  status: 'new' | 'confirmed' | 'preparing' | 'ready' | 'out_for_delivery' | 'completed' | 'cancelled';
+  notification_status: 'pending' | 'sent' | 'not_configured' | 'failed';
+  created_at: string;
+  updated_at: string;
+};

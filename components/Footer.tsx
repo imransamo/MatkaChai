@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ChatLauncher } from '@/components/ChatLauncher';
 import { env } from '@/lib/env';
 
 export function Footer() {
@@ -25,7 +26,7 @@ export function Footer() {
         </div>
         <div>
           <h3>Contact</h3>
-          <a href={`https://wa.me/${env.whatsappNumber}`} target="_blank" rel="noreferrer">WhatsApp us</a>
+          <ChatLauncher className="footer-chat-link">Chat with us</ChatLauncher>
           <a href="mailto:hello@matkachai.pk">hello@matkachai.pk</a>
           <Link href="/admin/login" className="subtle-admin">Owner login</Link>
         </div>

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { ChatLauncher } from '@/components/ChatLauncher';
 import { MenuCard } from '@/components/MenuCard';
 import { SectionTitle } from '@/components/SectionTitle';
 import { env } from '@/lib/env';
@@ -7,7 +8,6 @@ import { getSignatureItems } from '@/lib/menu';
 
 export default async function HomePage() {
   const signatureItems = await getSignatureItems();
-  const whatsappOrder = `https://wa.me/${env.whatsappNumber}?text=${encodeURIComponent('Assalam-o-Alaikum, I would like to order from Matka Chai.')}`;
 
   const schema = {
     '@context': 'https://schema.org',
@@ -85,7 +85,8 @@ export default async function HomePage() {
             <p>Bring the family, meet friends or take a pause after a long Karachi day.</p>
           </div>
           <div className="evening-actions">
-            <a href={whatsappOrder} target="_blank" rel="noreferrer" className="button button-gold">Order on WhatsApp</a>
+            <Link href="/menu" className="button button-gold">Order online</Link>
+            <ChatLauncher className="button button-outline-light">Chat with us</ChatLauncher>
             <Link href="/visit" className="button button-outline-light">Plan Your Visit</Link>
           </div>
         </div>

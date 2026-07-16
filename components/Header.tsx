@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { env } from '@/lib/env';
+import { useCart } from '@/components/CartProvider';
 
 const links = [
   ['Home', '/'],
@@ -16,7 +16,7 @@ const links = [
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const whatsappHref = `https://wa.me/${env.whatsappNumber}?text=${encodeURIComponent('Assalam-o-Alaikum, I would like to know more about Matka Chai.')}`;
+  const { itemCount } = useCart();
 
   return (
     <header className="site-header">
@@ -46,7 +46,13 @@ export function Header() {
               {label}
             </Link>
           ))}
-          <a className="button button-small button-gold" href={whatsappHref} target="_blank" rel="noreferrer">WhatsApp</a>
+          <Link href="/cart" className={`nav-cart ${pathname === '/cart' ? 'active' : ''}`} onClick={() => setOpen(false)}>
+            Cart <span aria-label={`${itemCount} items`}>{itemCount}</span>
+          </Link>
+          <button className="button button-small button-gold" type="button" onClick={() => {
+            setOpen(false);
+            window.dispatchEvent(new CustomEvent('matka-chat-open'));
+          }}>Chat with us</button>
         </nav>
       </div>
     </header>
