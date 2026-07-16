@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 760" role="img" aria-labelledby="title desc">
+  <title id="title">Traditional terracotta matka chai cup</title>
+  <desc id="desc">A realistic unglazed earthen chai matka with a wide rim, gently rounded body, narrow base and rising steam.</desc>
+  <defs>
+    <linearGradient id="clay" x1=".15" y1="0" x2=".88" y2="1">
+      <stop offset="0" stop-color="#e09a62"/>
+      <stop offset=".2" stop-color="#bd6b3f"/>
+      <stop offset=".58" stop-color="#9d4d2d"/>
+      <stop offset=".82" stop-color="#71301f"/>
+      <stop offset="1" stop-color="#4a2018"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0ad73"/>
+      <stop offset=".48" stop-color="#a65030"/>
+      <stop offset="1" stop-color="#64291d"/>
+    </linearGradient>
+    <radialGradient id="tea" cx=".42" cy=".3" r=".7">
+      <stop offset="0" stop-color="#d59a58"/>
+      <stop offset=".45" stop-color="#a95f34"/>
+      <stop offset="1" stop-color="#4e271c"/>
+    </radialGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2=".2">
+      <stop offset="0" stop-color="#ffd2a0" stop-opacity=".55"/>
+      <stop offset=".5" stop-color="#ffd2a0" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="8"/></filter>
+    <filter id="shadow"><feDropShadow dx="0" dy="24" stdDeviation="20" flood-color="#180707" flood-opacity=".48"/></filter>
+    <pattern id="grain" width="21" height="19" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="6" r="1.1" fill="#3b160f" opacity=".28"/>
+      <circle cx="15" cy="13" r=".8" fill="#f6b77f" opacity=".22"/>
+      <path d="M2 17l8-2M12 4l6-1" stroke="#3e160f" stroke-width=".7" opacity=".16"/>
+    </pattern>
+    <clipPath id="bodyClip"><path d="M150 278C151 405 170 566 231 647c47 62 171 62 218 0 61-81 80-242 81-369-88 34-292 34-380 0Z"/></clipPath>
+  </defs>
+  <ellipse cx="340" cy="699" rx="224" ry="39" fill="#1c0908" opacity=".45" filter="url(#soft)"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M268 169c-47-72 39-83 5-144" stroke="#fff4da" stroke-width="14" opacity=".42" filter="url(#soft)"/>
+    <path d="M343 157c-53-83 49-97 9-166" stroke="#fff8e8" stroke-width="13" opacity=".58" filter="url(#soft)"/>
+    <path d="M417 171c-43-65 36-82 10-138" stroke="#fff4da" stroke-width="12" opacity=".38" filter="url(#soft)"/>
+    <path d="M268 169c-47-72 39-83 5-144" stroke="#fff8e8" stroke-width="5" opacity=".7"/>
+    <path d="M343 157c-53-83 49-97 9-166" stroke="#fffdf2" stroke-width="5" opacity=".82"/>
+    <path d="M417 171c-43-65 36-82 10-138" stroke="#fff8e8" stroke-width="4" opacity=".64"/>
+  </g>
+  <g filter="url(#shadow)">
+    <path d="M150 278C151 405 170 566 231 647c47 62 171 62 218 0 61-81 80-242 81-369-88 34-292 34-380 0Z" fill="url(#clay)"/>
+    <path d="M150 278C151 405 170 566 231 647c47 62 171 62 218 0 61-81 80-242 81-369-88 34-292 34-380 0Z" fill="url(#grain)" opacity=".8"/>
+    <path d="M187 323c14 128 30 240 82 315" fill="none" stroke="url(#shine)" stroke-width="34" stroke-linecap="round" opacity=".46" clip-path="url(#bodyClip)"/>
+    <g fill="none" stroke-linecap="round" opacity=".38" clip-path="url(#bodyClip)">
+      <path d="M153 363c105 28 269 28 374 0" stroke="#542015" stroke-width="8"/>
+      <path d="M165 413c104 26 246 26 350 0" stroke="#f0a06b" stroke-width="5"/>
+      <path d="M177 472c95 23 231 23 326 0" stroke="#5e2518" stroke-width="7"/>
+      <path d="M196 535c86 19 202 19 288 0" stroke="#e6945f" stroke-width="4"/>
+      <path d="M218 594c75 16 169 16 244 0" stroke="#572116" stroke-width="6"/>
+    </g>
+    <ellipse cx="340" cy="278" rx="191" ry="76" fill="url(#rim)"/>
+    <ellipse cx="340" cy="268" rx="165" ry="54" fill="#4e2118"/>
+    <ellipse cx="340" cy="262" rx="151" ry="44" fill="url(#tea)"/>
+    <ellipse cx="308" cy="250" rx="67" ry="16" fill="#f0c184" opacity=".2"/>
+    <path d="M198 294c76 34 208 38 284 0" fill="none" stroke="#f1a069" stroke-width="12" stroke-linecap="round" opacity=".7"/>
+    <path d="M216 287c64 23 182 27 248 1" fill="none" stroke="#5e281c" stroke-width="5" opacity=".7"/>
+  </g>
+</svg>
