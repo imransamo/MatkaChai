@@ -3,15 +3,38 @@ import { createSupabaseServerClient } from '@/lib/supabase/server';
 import type { MenuCategory, MenuCategoryWithItems, MenuItem } from '@/lib/types';
 
 const preferredMenuImages: Record<string, string> = {
+  'chai-1': '/images/matka-chai-fine-matka.webp',
+  'chai-2': '/images/elaichi-chai-fine-matka.webp',
   'chai-3': '/images/malai-badam-chai-fine-matka.webp',
+  'chai-4': '/images/kashmiri-chai-fine-matka.webp',
+  'chai-5': '/images/chocolate-chai-fine-matka.webp',
+  'chai-6': '/images/green-tea-fine-matka.webp',
+  'coffee-1': '/images/hot-coffee-fine-matka.webp',
   'coffee-2': '/images/caramel-iced-latte-glass.webp',
   'coffee-3': '/images/mocha-iced-latte-glass.webp',
   'cooler-1': '/images/mint-slush-art-matka.webp',
+  'cooler-2': '/images/pineapple-slush-art-matka.webp',
+  'cooler-3': '/images/blueberry-slush-art-matka.webp',
+  'cooler-4': '/images/lychee-slush-art-matka.webp',
+  'cooler-5': '/images/raspberry-slush-art-matka.webp',
+  'cooler-6': '/images/strawberry-slush-art-matka.webp',
+  'cooler-7': '/images/peach-slush-art-matka.webp',
+  'fries-1': '/images/classic-crispo-fine-matka.webp',
+  'fries-2': '/images/masala-fries-fine-matka.webp',
   'fries-3': '/images/matka-fries-fine-matka.webp',
   'fries-4': '/images/loaded-fries-fine-matka.webp',
+  'fries-5': '/images/pepperoni-pizza-fries-fine-matka.webp',
+  'fries-6': '/images/nuggets-fries-fine-matka.webp',
+  'fries-7': '/images/chicken-strips-fries-fine-matka.webp',
+  'fries-8': '/images/cheese-sticks-fries-fine-matka.webp',
   'main-1': '/images/chicken-biryani-fine-handi.webp',
+  'main-2': '/images/beef-biryani-fine-handi.webp',
   'main-3': '/images/beef-nalli-biryani-fine-handi.webp',
+  'main-4': '/images/chicken-handi-fine-handi.webp',
+  'main-5': '/images/chicken-reshmi-handi-fine-handi.webp',
+  'main-6': '/images/chicken-karahi-fine-handi.webp',
   'rosh-1': '/images/lamb-rosh-fine-handi.webp',
+  'rosh-2': '/images/mutton-rosh-fine-handi.webp',
 };
 
 const legacyMenuImages = new Set([

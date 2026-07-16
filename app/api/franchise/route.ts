@@ -29,12 +29,12 @@ export async function POST(request: Request) {
     }
 
     const supabase = createSupabaseAdminClient();
-    if (!supabase) return NextResponse.json({ error: 'The enquiry database is not connected yet. Please contact us on WhatsApp.' }, { status: 503 });
+    if (!supabase) return NextResponse.json({ error: 'The enquiry database is not connected yet. Please use Chat with us.' }, { status: 503 });
 
     const { error } = await supabase.from('franchise_leads').insert(payload);
     if (error) {
       console.error('Franchise insert error:', error.message);
-      return NextResponse.json({ error: 'Your enquiry could not be saved. Please try again or contact us on WhatsApp.' }, { status: 500 });
+      return NextResponse.json({ error: 'Your enquiry could not be saved. Please try again or use Chat with us.' }, { status: 500 });
     }
 
     return NextResponse.json({ ok: true });

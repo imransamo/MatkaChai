@@ -35,7 +35,7 @@ export function FranchiseForm() {
       <input className="honeypot" name="company_website" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <div className="form-grid">
         <label>Full name<input name="full_name" required minLength={2} maxLength={100} /></label>
-        <label>WhatsApp number<input name="phone" required inputMode="tel" minLength={8} maxLength={30} /></label>
+        <label>Phone number<input name="phone" required inputMode="tel" minLength={8} maxLength={30} /></label>
         <label>Email address<input type="email" name="email" required maxLength={120} /></label>
         <label>City<input name="city" required minLength={2} maxLength={80} /></label>
         <label>Preferred location<input name="preferred_location" maxLength={120} placeholder="Area, mall or city" /></label>

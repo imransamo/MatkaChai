@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
-import { WhatsAppFloat } from '@/components/WhatsAppFloat';
+import { CartProvider } from '@/components/CartProvider';
+import { ChatWidget } from '@/components/ChatWidget';
 import { env } from '@/lib/env';
 import './globals.css';
 
@@ -26,10 +27,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppFloat />
+        <CartProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <ChatWidget />
+        </CartProvider>
       </body>
     </html>
   );

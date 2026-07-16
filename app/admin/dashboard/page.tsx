@@ -1,21 +1,23 @@
 import type { Metadata } from 'next';
 import { requireAdmin } from '@/lib/admin';
-import type { ContactMessage, FranchiseLead, MenuCategory, MenuItem } from '@/lib/types';
-import { createMenuItemAction, signOutAction, updateLeadStatusAction, updateMenuItemAction, updateMessageStatusAction } from '../actions';
+import type { ContactMessage, FranchiseLead, MenuCategory, MenuItem, Order } from '@/lib/types';
+import { createMenuItemAction, signOutAction, updateLeadStatusAction, updateMenuItemAction, updateMessageStatusAction, updateOrderStatusAction } from '../actions';
 
 export const metadata: Metadata = { title: 'Owner Dashboard', robots: { index: false, follow: false } };
 
 export default async function AdminDashboardPage() {
   const { supabase, admin, user } = await requireAdmin();
-  const [{ data: categories }, { data: items }, { data: leads }, { data: messages }] = await Promise.all([
+  const [{ data: categories }, { data: items }, { data: orders }, { data: leads }, { data: messages }] = await Promise.all([
     supabase.from('menu_categories').select('*').order('sort_order'),
     supabase.from('menu_items').select('*').order('category_id').order('sort_order'),
+    supabase.from('orders').select('*').order('created_at', { ascending: false }).limit(150),
     supabase.from('franchise_leads').select('*').order('created_at', { ascending: false }).limit(100),
     supabase.from('contact_messages').select('*').order('created_at', { ascending: false }).limit(100),
   ]);
 
   const typedCategories = (categories || []) as MenuCategory[];
   const typedItems = (items || []) as MenuItem[];
+  const typedOrders = (orders || []) as Order[];
   const typedLeads = (leads || []) as FranchiseLead[];
   const typedMessages = (messages || []) as ContactMessage[];
 
@@ -27,10 +29,30 @@ export default async function AdminDashboardPage() {
       </div>
 
       <div className="admin-metrics">
+        <div><strong>{typedOrders.filter((order) => order.status === 'new').length}</strong><span>New orders</span></div>
         <div><strong>{typedItems.length}</strong><span>Menu items</span></div>
         <div><strong>{typedLeads.filter((lead) => lead.status === 'new').length}</strong><span>New franchise leads</span></div>
         <div><strong>{typedMessages.filter((message) => message.status === 'new').length}</strong><span>New messages</span></div>
       </div>
+
+      <details className="admin-panel" open>
+        <summary><span>Customer Orders</span><small>{typedOrders.length} latest orders</small></summary>
+        <div className="admin-panel-body table-wrap">
+          {typedOrders.length === 0 ? <p>No online orders yet. New website and chat-assisted orders will appear here.</p> : (
+            <table className="admin-table orders-table"><thead><tr><th>Order</th><th>Customer</th><th>Fulfilment</th><th>Items</th><th>Total</th><th>Alert</th><th>Status</th></tr></thead>
+              <tbody>{typedOrders.map((order) => <tr key={order.id}>
+                <td><strong>{order.order_number}</strong><br /><small>{new Date(order.created_at).toLocaleString('en-PK')}</small><br /><small>via {order.source}</small></td>
+                <td><strong>{order.customer_name}</strong><br /><a href={`tel:${order.phone}`}>{order.phone}</a>{order.notes ? <><br /><small>Note: {order.notes}</small></> : null}</td>
+                <td><strong>{order.fulfilment_type === 'delivery' ? 'Delivery' : 'Pickup'}</strong><br /><small>{order.delivery_phase || 'Creek Walk, DHA 8'}</small>{order.delivery_address ? <><br />{order.delivery_address}</> : null}</td>
+                <td>{order.items.map((item) => <div key={`${order.id}-${item.item_id}`}>{item.quantity} × {item.name}</div>)}</td>
+                <td><strong>Rs {Number(order.total).toLocaleString('en-PK')}</strong><br /><small>Cash</small></td>
+                <td><span className={`notification-pill ${order.notification_status}`}>{order.notification_status.replace('_', ' ')}</span></td>
+                <td><form action={updateOrderStatusAction} className="status-form"><input type="hidden" name="id" value={order.id} /><select name="status" defaultValue={order.status}><option value="new">New</option><option value="confirmed">Confirmed</option><option value="preparing">Preparing</option><option value="ready">Ready</option><option value="out_for_delivery">Out for delivery</option><option value="completed">Completed</option><option value="cancelled">Cancelled</option></select><button>Update</button></form></td>
+              </tr>)}</tbody>
+            </table>
+          )}
+        </div>
+      </details>
 
       <details className="admin-panel" open>
         <summary><span>Menu Manager</span><small>Edit prices, descriptions and availability</small></summary>
