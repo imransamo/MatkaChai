@@ -11,12 +11,12 @@ export const seedMenu: MenuCategoryWithItems[] = [
     sort_order: 1,
     is_active: true,
     items: [
-      { id: 'chai-1', category_id: 'cat-chai', name: 'Matka Chai', description: 'Our signature creamy doodh patti served in a finely crafted earthen matka.', price: 250, image_url: '/images/matka-chai-fine-matka.webp', badge: 'Signature', is_signature: true, is_active: true, sort_order: 1 },
-      { id: 'chai-2', category_id: 'cat-chai', name: 'Elachi Chai', description: 'Aromatic cardamom chai served in a finely crafted earthen matka.', price: 300, image_url: '/images/elaichi-chai-fine-matka.webp', badge: null, is_signature: false, is_active: true, sort_order: 2 },
-      { id: 'chai-3', category_id: 'cat-chai', name: 'Malai Badam Chai', description: 'Creamy chai finished with delicate malai and almond slivers.', price: 400, image_url: '/images/malai-badam-chai-fine-matka.webp', badge: 'Favourite', is_signature: true, is_active: true, sort_order: 3 },
-      { id: 'chai-4', category_id: 'cat-chai', name: 'Kashmiri Chai', description: 'Pink tea with a delicate nutty finish, served in a fine matka.', price: 400, image_url: '/images/kashmiri-chai-fine-matka.webp', badge: null, is_signature: false, is_active: true, sort_order: 4 },
-      { id: 'chai-5', category_id: 'cat-chai', name: 'Chocolate Chai', description: 'A playful chocolate twist on classic chai, served in a fine matka.', price: 400, image_url: '/images/chocolate-chai-fine-matka.webp', badge: null, is_signature: false, is_active: true, sort_order: 5 },
-      { id: 'chai-6', category_id: 'cat-chai', name: 'Green Tea', description: 'Light, clean and soothing, served in a fine matka.', price: 250, image_url: '/images/green-tea-fine-matka.webp', badge: null, is_signature: false, is_active: true, sort_order: 6 }
+      { id: 'chai-1', category_id: 'cat-chai', name: 'Matka Chai', description: 'Our signature creamy doodh patti served in a finely crafted earthen matka.', price: 250, image_url: '/images/matka-chai-real-matka.webp', badge: 'Signature', is_signature: true, is_active: true, sort_order: 1 },
+      { id: 'chai-2', category_id: 'cat-chai', name: 'Elachi Chai', description: 'Aromatic cardamom chai served in a finely crafted earthen matka.', price: 300, image_url: '/images/elaichi-chai-real-matka.webp', badge: null, is_signature: false, is_active: true, sort_order: 2 },
+      { id: 'chai-3', category_id: 'cat-chai', name: 'Malai Badam Chai', description: 'Creamy chai finished with delicate malai and almond slivers.', price: 400, image_url: '/images/malai-badam-chai-real-matka.webp', badge: 'Favourite', is_signature: true, is_active: true, sort_order: 3 },
+      { id: 'chai-4', category_id: 'cat-chai', name: 'Kashmiri Chai', description: 'Pink tea with a delicate nutty finish, served in a fine matka.', price: 400, image_url: '/images/kashmiri-chai-real-matka.webp', badge: null, is_signature: false, is_active: true, sort_order: 4 },
+      { id: 'chai-5', category_id: 'cat-chai', name: 'Chocolate Chai', description: 'A playful chocolate twist on classic chai, served in a fine matka.', price: 400, image_url: '/images/chocolate-chai-real-matka.webp', badge: null, is_signature: false, is_active: true, sort_order: 5 },
+      { id: 'chai-6', category_id: 'cat-chai', name: 'Green Tea', description: 'Light, clean and soothing, served in a fine matka.', price: 250, image_url: '/images/green-tea-real-matka.webp', badge: null, is_signature: false, is_active: true, sort_order: 6 }
     ]
   },
   {
